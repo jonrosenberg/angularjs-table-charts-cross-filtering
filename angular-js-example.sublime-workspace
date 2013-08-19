@@ -1,0 +1,230 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"quan",
+				"quantiles"
+			],
+			[
+				"pro",
+				"procedure_list"
+			],
+			[
+				"texas",
+				"texas_data"
+			],
+			[
+				"dr",
+				"drg_id"
+			],
+			[
+				"te",
+				"Texas"
+			],
+			[
+				"sub",
+				"subset"
+			],
+			[
+				"weighted",
+				"weighted_average_overall_cost"
+			],
+			[
+				"max",
+				"max_location_code"
+			],
+			[
+				"code",
+				"location_code"
+			],
+			[
+				"lo",
+				"location_code"
+			],
+			[
+				"add",
+				"add_location_of_follower"
+			],
+			[
+				"social_lca",
+				"social_location_estimate"
+			],
+			[
+				"ma",
+				"max_location_code"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/amanda/Documents/code/angular-example/style.css",
+		"/Users/amanda/Documents/code/angular-example/script.js",
+		"/Users/amanda/Documents/code/sugar/app/views/admins/index.html.erb",
+		"/Users/amanda/Documents/code/angular-example/index.html",
+		"/Users/amanda/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
+		"/Users/amanda/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
+		"/Users/amanda/Documents/code/sugar/sugar.sublime-project",
+		"/Users/amanda/Documents/code/healthcare-for-me/cost_calculation.rb",
+		"/Users/amanda/Documents/code/twitter-location-prediction/twitter-location-predictor.py",
+		"/Users/amanda/Library/Caches/TemporaryItems/Outlook Temp/twitter-location-predictor[4].py",
+		"/Users/amanda/Documents/twitter-location-predictor.py",
+		"/Users/amanda/Library/Caches/TemporaryItems/Outlook Temp/twitter-location-predictor[2].py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"google-chart-sample",
+			"predicate1",
+			"auto",
+			"auto_complete_selector",
+			"Controls what scopes auto complete will be triggered in)",
+			"// Controls what scopes auto complete will be triggered in)",
+			"add_location",
+			"social_location_estimate",
+			"user.",
+			"location_code",
+			"best_location_estimate_GPS",
+			"tweet_set",
+			"time_stamp",
+			"recent_tweets",
+			"best_location_GPS"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"most_frequent_location"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "angular-js-example.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 131.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

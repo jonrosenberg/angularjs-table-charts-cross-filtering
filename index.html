@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 
   <head>
     <meta charset='utf-8' />
@@ -7,6 +7,16 @@
     <meta name="description" content="Angularjs-table-charts-cross-filtering : AngularJS Table and google pie charts cross filtering " />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
+    <script src="http://www.google.com/jsapi"></script>
+    <script src="ng-google-chart.js"></script>
+  
+    <link rel="stylesheet" href="style.css" />
+    
 
     <title>Angularjs-table-charts-cross-filtering</title>
   </head>
@@ -31,37 +41,73 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+     
+      <!-- AngularJS Example -->
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+      <div ng-init="friends = [
+                 {name:'John', phone:'555-1276', age: 53},
+                             {name:'Mary', phone:'800-BIG-MARY', age: 23},
+                             {name:'Mike', phone:'555-4321', age: 13},
+                             {name:'Adam', phone:'555-5678', age: 45},
+                             {name:'Julie', phone:'555-8765', age: 43},
+                             {name:'Juliette', phone:'555-5678', age: 29}
+                            ]"></div>
+    <div class="container">
+    <h1>Table example</h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+    <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+    <script>
+      console.log($scope);
+    </script>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+    <lebel>name:</lebel>
+    <select
+       ng-model="search.name" ng-options="friend.name as friend.name for friend in friends">
+       <option value="">-- chose color --</option>
+      </select>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+    <p>Search: <input ng-model="searchText"></p>
+    <table class="table table-striped" id="searchTextResults">
+    <thead>
+      <tr>
+        <th><a href="" ng-click="predicate = 'name'; reverse= !reverse">Name</a></th>
+        <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
+        <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr ng-repeat="friend in friends | filter:searchText | orderBy:predicate:reverse">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+        <td>{{friend.age}}</td>
+      </tr>
+      </tbody>
+    </table>
+    
+    <hr>
+    <div class="well">
+    Any: <input ng-model="search.$"> <br>
+    Name only <input ng-model="search.name"><br>
+    Phone only <input ng-model="search.phone"><br>
+    Equality <input type="checkbox" ng-model="strict"><br>
+    </div>
+    <table class="table table-striped table-bordered" id="searchObjResults">
+      <tr>
+        <th><a href="" ng-click="predicate = 'name'; reverse= !reverse">Name</a></th>
+        <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
+        <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
+      </tr>
+      <tr ng-repeat="friend in friends | filter:search:strict | orderBy:predicate:reverse">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+        <td>{{friend.age}}</td>
+      </tr>
+    </table>
+    </div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+      <!-- end of angular js example -->
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 
@@ -87,3 +133,4 @@ $ git checkout gh-pages
 
   </body>
 </html>
+
