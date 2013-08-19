@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 
   <head>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css" />
@@ -8,51 +8,30 @@
     <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
     <script src="http://www.google.com/jsapi"></script>
     <script src="ng-google-chart.js"></script>
+    <script src="script.js"></script>
 	
     <link rel="stylesheet" href="style.css" />
     
   </head>
 
-  <body>
-    <div ng-init="friends = [
-    						 {name:'John', phone:'555-1276', age: 53},
-                             {name:'Mary', phone:'800-BIG-MARY', age: 23},
-                             {name:'Mike', phone:'555-4321', age: 13},
-                             {name:'Adam', phone:'555-5678', age: 45},
-                             {name:'Julie', phone:'555-8765', age: 43},
-                             {name:'Juliette', phone:'555-5678', age: 29}
-                            ]"></div>
-    <div class="container">
+  <body ng-controller="AppCtrl">
+    
+    <div  class="container">
     <h1>Table example</h1>
-
-    <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
-    <script>
-    	console.log($scope);
-    </script>
+    
+    
+    
+    <div >
+      <p>[ {{app.friends}} ]</p>
+    </div>
 
     <lebel>name:</lebel>
     <select
-       ng-model="search.name" ng-options="friend.name as friend.name for friend in friends">
+       ng-model="search.name" ng-options="friend.name as friend.name for friend in app.friends">
        <option value="">-- chose color --</option>
       </select>
 
-    <p>Search: <input ng-model="searchText"></p>
-    <table class="table table-striped" id="searchTextResults">
-    <thead>
-      <tr>
-	      <th><a href="" ng-click="predicate = 'name'; reverse= !reverse">Name</a></th>
-	      <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
-	      <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr ng-repeat="friend in friends | filter:searchText | orderBy:predicate:reverse">
-        <td>{{friend.name}}</td>
-        <td>{{friend.phone}}</td>
-        <td>{{friend.age}}</td>
-      </tr>
-      </tbody>
-    </table>
+    
     
     <hr>
     <div class="well">
@@ -67,12 +46,13 @@
 	      <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
 	      <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
       </tr>
-      <tr ng-repeat="friend in friends | filter:search:strict | orderBy:predicate:reverse">
+      <tr ng-repeat="friend in app.friends | filter:search:strict | orderBy:predicate:reverse">
         <td>{{friend.name}}</td>
         <td>{{friend.phone}}</td>
         <td>{{friend.age}}</td>
       </tr>
     </table>
+    <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
     </div>
   </body>
 </html>
