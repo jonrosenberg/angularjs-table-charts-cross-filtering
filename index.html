@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 
   <head>
     <meta charset='utf-8' />
@@ -12,17 +12,18 @@
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
     <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
-    <script src="http://www.google.com/jsapi"></script>
+    
     <script src="ng-google-chart.js"></script>
-  
+
+	  <script src="script.js"></script>
+
     <link rel="stylesheet" href="style.css" />
     
 
     <title>Angularjs-table-charts-cross-filtering</title>
   </head>
 
-  <body>
-
+  <body  ng-controller="AppCtrl">
   <header>
     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
       <div class="navbar-header">
@@ -35,16 +36,9 @@
 
   </header>
 
-    <div ng-init="friends = [
-    						 {name:'John', phone:'555-1276', age: 53},
-                             {name:'Mary', phone:'800-BIG-MARY', age: 23},
-                             {name:'Mike', phone:'555-4321', age: 13},
-                             {name:'Adam', phone:'555-5678', age: 45},
-                             {name:'Julie', phone:'555-8765', age: 43},
-                             {name:'Juliette', phone:'555-5678', age: 29}
-                            ]"></div>
-    <div class="container">
-      <strong><DIV></DIV>ownload: </strong> 
+   
+    <div ng-controller="AppCtrl" class="container">
+      <strong>Download: </strong> 
       <div class="btn-group">
         <a class="btn btn-info" href="https://github.com/jonrosenberg/angularjs-table-charts-cross-filtering/tarball/master">Tar file</a>
         <a class="btn btn-info" href="https://github.com/jonrosenberg/angularjs-table-charts-cross-filtering/zipball/master">Zip file</a>
@@ -55,17 +49,10 @@
         <h3>AngularJS Table and google pie charts cross filtering</h3>
       </div>
 
-
-    <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
-    <script>
-      console.log($scope);
-    </script>
-    
-      
     <div class="well">
     <lebel>name:</lebel>
     
-    <select ng-model="search.name" ng-options="friend.name as friend.name for friend in friends">
+    <select ng-model="search.name" ng-options="friend.name as friend.name for friend in app.friends">
        <option value="">-- chose name --</option>
     </select><br />
     
@@ -81,12 +68,14 @@
         <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
         <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
       </tr>
-      <tr ng-repeat="friend in friends | filter:search:strict | orderBy:predicate:reverse">
+      <tr ng-repeat="friend in app.friends | filter:search:strict | orderBy:predicate:reverse">
         <td>{{friend.name}}</td>
         <td>{{friend.phone}}</td>
         <td>{{friend.age}}</td>
       </tr>
     </table>
+    <div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+
     </div>
 
       <!-- end of angular js example -->
