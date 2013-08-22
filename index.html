@@ -57,7 +57,7 @@
 	      <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
 	      <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
       </tr>
-      <tr ng-repeat="friend in app.friends | filter:search:strict | orderBy:predicate:reverse">
+      <tr ng-repeat="friend in  ( filteredFriends = (app.friends | filter:search:strict | orderBy:predicate:reverse) ) ">
         <td>{{friend.name}}</td>
         <td>{{friend.phone}}</td>
         <td>{{friend.age}}</td>
@@ -74,9 +74,8 @@
     </select>
     </p>
 
-    <input type="number" value="{{(app.friends | filter:search:strict).length }}" ng-model="chart.data.rows[1].c[1].v"/>
-    <p>data: {{ chart.data.rows[1].c[1].v }}</p>
-    <p>size: {{(app.friends | filter:search:strict).length }}</p>
+    <p>Here: {{ (chart.data.rows[0].c[1].v = filteredFriends.length) }}</p>
+    <p>Missing: {{ (chart.data.rows[1].c[1].v = app.friends.length - filteredFriends.length) }}</p>
     
     <div google-chart chart="chart" style="{{chart.cssStyle}}"></div>
 
