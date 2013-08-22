@@ -1,8 +1,10 @@
 /**
- *  Script
+ *  Cross filter data with google charts and table filter 
  */
 'use strict';
 
+
+// Load angular google charts module
 google.setOnLoadCallback(function () {
     angular.bootstrap(document.body, ['myApp']);
 });
@@ -50,16 +52,18 @@ myApp.controller('AppCtrl', ['$scope', '$filter', 'Data', function($scope, $filt
         "cols": [
             {id: "attendence", label: "Attendence", type: "string"},
             {id: "count", label: "Count", type: "number"}
-        ], "rows": [
+        ], 
+        "rows": [
             {c: [
                 {v: "Here"},
                 {v: $scope.app.friends.length}
             ]},
             {c: [
                 {v: "Missing"},
-                {v: (12 - $scope.app.friends.length)}
+                {v: 0 }
             ]}
     ]};
+
 
     chart1.options = {
         "title": "Attendence",
