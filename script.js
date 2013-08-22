@@ -10,7 +10,7 @@ google.setOnLoadCallback(function () {
 });
 google.load('visualization', '1', {packages: ['corechart']});
 
-
+// Add google chart dependance
 var myApp = angular.module("myApp", ['googlechart.directives']);
 
 myApp.factory('Data', function() {
@@ -28,11 +28,15 @@ myApp.factory('Data', function() {
     }
 });
 
+// Main controller
 myApp.controller('AppCtrl', ['$scope', '$filter', 'Data', function($scope, $filter, Data) {
-    console.log(Data);
+    
+    // Defining app scope
     $scope.app = {}
     $scope.app.data = Data; 
     $scope.app.message = "In AppCtrl"; 
+
+    // Define table data
     var friends = [
                  {name:'John II', phone:'555-1276', age: 53},
                  {name:'Mary', phone:'800-BIG-MARY', age: 23},
@@ -43,7 +47,8 @@ myApp.controller('AppCtrl', ['$scope', '$filter', 'Data', function($scope, $filt
                  {name:'Juliette', phone:'555-5678', age: 29}
                 ];
     $scope.app.friends = friends;
-    console.log($filter('filter')($scope.app.friends,$scope.search,false).length);
+
+    // Define chart dataTable
     var chart1 = {};
     chart1.type = "PieChart";
     chart1.displayed = false;
@@ -64,7 +69,7 @@ myApp.controller('AppCtrl', ['$scope', '$filter', 'Data', function($scope, $filt
             ]}
     ]};
 
-
+    // Define chart options
     chart1.options = {
         "title": "Attendence",
         "isStacked": "true",
@@ -78,6 +83,5 @@ myApp.controller('AppCtrl', ['$scope', '$filter', 'Data', function($scope, $filt
         }
     };
     $scope.chart = chart1;
-    console.log($scope);
 }]);
 

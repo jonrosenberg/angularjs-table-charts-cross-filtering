@@ -45,7 +45,7 @@
     <select ng-model="search.name" ng-options="friend.name as friend.name for friend in app.friends">
        <option value="">-- chose name --</option>
     </select><br />
-    
+    <!-- Filering table data and chart data -->
     Any: <input ng-model="search.$"> <br>
     Name only <input ng-model="search.name"><br>
     Phone only <input ng-model="search.phone"><br>
@@ -57,6 +57,7 @@
 	      <th><a href="" ng-click="predicate = 'phone'; reverse= !reverse">Phone</a></th>
 	      <th><a href="" ng-click="predicate = 'age'; reverse= !reverse">Age</a></th>
       </tr>
+      <!-- Save filter results in filteredFriends -->
       <tr ng-repeat="friend in  ( filteredFriends = (app.friends | filter:search:strict | orderBy:predicate:reverse) ) ">
         <td>{{friend.name}}</td>
         <td>{{friend.phone}}</td>
@@ -73,7 +74,7 @@
         <option value="BarChart">BarChart</option>
     </select>
     </p>
-
+    <!-- Update chart data with filter data -->
     <p>Here: {{ (chart.data.rows[0].c[1].v = filteredFriends.length) }}</p>
     <p>Missing: {{ (chart.data.rows[1].c[1].v = app.friends.length - filteredFriends.length) }}</p>
     
